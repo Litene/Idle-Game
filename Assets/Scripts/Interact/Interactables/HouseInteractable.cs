@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class HouseInteractable : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class HouseInteractable : Interactable {
+    [SerializeField] private GameObject housePopup;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void Use() {
+        if (!housePopup.activeSelf) {
+            _popupManager.CloseAllLeftPopups();
+        }
+        housePopup.SetActive(!housePopup.activeSelf);
     }
 }
