@@ -1,24 +1,41 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour {
-    [field: SerializeField] public Currency CityGold = new Currency() { CurrencyType = CurrencyType.Gold };
-    [field: SerializeField] public Currency CityLumber = new Currency() { CurrencyType = CurrencyType.Wood };
-    [field: SerializeField] public Currency CityOre = new Currency() { CurrencyType = CurrencyType.Ore };
+    private GameManager _instance;
+    public List<IModelListener> Listeners { get; set; }
 
-    public float CityGoldPerSecond { get; private set; } = 10;
-    public float CityLumberPerSecond { get; private set; } = 0;
-    public float CityOrePerSecond { get; private set; } = 0;
+    public GameManager Instance {
+        get {
+            if (_instance == null) _instance = this;
 
-    [field: SerializeField] public uint CurrentGold;
-
-    // private ulong _cityGoldPerFrame;
-    // private ulong _goldPerFrame;
-    // private ulong _goldPerFrame;
-    public void Update() {
-        CityGold.CurrentAmount += (CityGoldPerSecond * Time.deltaTime);
-        //CityLumber += (CityLumberPerSecond * Time.deltaTime);
-        // CityOre += (CityOrePerSecond * Time.deltaTime);
-        // CurrentGold = (uint)CityGold;
+            return _instance;
+        }
     }
+    public Currency CityGold { get; private set; } = new Currency(CurrencyType.Gold);
+    public Currency CityLumber { get; private set; } = new Currency(CurrencyType.Wood);
+    public Currency CityWood { get; private set; } = new Currency(CurrencyType.Ore);
+
+    public void Update() {
+        UpdateIncome();
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            CityGold.IncreaseAmount(600f);
+        }
+        else if (Input.GetKeyDown(KeyCode.Backspace)) {
+            CityGold.DecreaseAmount(3.0f);
+        }
+        Debug.Log(CityGold);
+    }
+
+    private void UpdateIncome() {
+        CityGold.IncreasePerSecond(Time.deltaTime);
+        CityLumber.IncreasePerSecond(Time.deltaTime);
+        CityWood.IncreasePerSecond(Time.deltaTime);
+    }
+}
+
+public enum GameState {
+    Running, Paused, UnSelected
 }
