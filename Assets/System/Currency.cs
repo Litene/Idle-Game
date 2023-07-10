@@ -2,48 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class Currency {
     private double _currentAmount;
-    private bool _useDecimalFormat;
+
+    private List<KeyValuePair<string, ulong>> NumberMultipliers = new List<KeyValuePair<string, ulong>>() {
+        new KeyValuePair<string, ulong>("Quintillion", 1000000000000000000),
+        new KeyValuePair<string, ulong>("Quadrillion", 1000000000000000),
+        new KeyValuePair<string, ulong>("Trillion", 1000000000000),
+        new KeyValuePair<string, ulong>("Billion", 1000000000),
+        new KeyValuePair<string, ulong>("Million", 1000000),
+        new KeyValuePair<string, ulong>("Thousand", 1000),
+    };
+
     public double CurrentCurrencyMultiplier { get; set; }
     public double CurrencyPerSecond { get; set; }
 
-    private ValuePair[] CurrentValues = new[] {
-        new ValuePair() {
-            Multiplier = Multiplier.None,
-            CurrentValue = 0
-        },
-        new ValuePair() {
-            Multiplier = Multiplier.Thousand,
-            CurrentValue = 0
-        },
-        new ValuePair() {
-            Multiplier = Multiplier.Million,
-            CurrentValue = 0
-        },
-        new ValuePair() {
-            Multiplier = Multiplier.Billion,
-            CurrentValue = 0
-        },
-        new ValuePair() {
-            Multiplier = Multiplier.Trillion,
-            CurrentValue = 0
-        },
-        new ValuePair() {
-            Multiplier = Multiplier.Quadrillion,
-            CurrentValue = 0
-        },
-        new ValuePair() {
-            Multiplier = Multiplier.Sextillion,
-            CurrentValue = 0
-        }
-    };
-    
-    
 
     public double IncreaseMultiplier(float multiplier) {
         CurrencyPerSecond *= multiplier;
@@ -51,25 +29,47 @@ public class Currency {
         return CurrencyPerSecond;
     }
 
+    public bool ChangeValue(double changeAmount) {
+        if (changeAmount < 0) {
+            if (_currentAmount + changeAmount > 0) {
+                _currentAmount += changeAmount;
+                return true;
+            }
+        }
+        else {
+            _currentAmount += changeAmount;
+            return true;
+        }
+
+        return false;
+    }
 
     public CurrencyType CurrencyType { get; private set; }
 
-
-    
+    public override string ToString() {
+        ulong currentAmount = 0;
+        string currentLargestNumber = "";
+        foreach (var multiplier in NumberMultipliers) {
+            if ((double)(_currentAmount / multiplier.Value) >= 1) {
+                if (currentLargestNumber == "") {
+                    currentLargestNumber = multiplier.Key;
+                    return (_currentAmount / multiplier.Value).ToString("0.##") + " " + currentLargestNumber;
+                }
+            }
+        }
+        return Math.Round(_currentAmount).ToString(CultureInfo.InvariantCulture);
+    }
 
     public Currency(CurrencyType type) {
         CurrencyType = type;
         _currentAmount = 0;
-        _useDecimalFormat = false;
-        CurrentCurrencyMultiplier = 1;
-        CurrencyPerSecond = 0;
+        CurrentCurrencyMultiplier = 10;
+        CurrencyPerSecond = 10;
     }
 
-}
-
-struct ValuePair {
-    public Multiplier Multiplier;
-    public int CurrentValue;
+    public void IncreasePerSecond(float deltaTime) {
+        _currentAmount += deltaTime * CurrentCurrencyMultiplier * CurrencyPerSecond;
+    }
 }
 
 
@@ -77,14 +77,4 @@ public enum CurrencyType {
     Wood,
     Ore,
     Gold
-}
-
-public enum Multiplier {
-    None = 0,
-    Thousand = 1,
-    Million = 2,
-    Billion = 3,
-    Trillion = 4,
-    Quadrillion = 5,
-    Sextillion = 6
 }
