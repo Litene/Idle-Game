@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd79f752830014408cf6e7a3b11eb99, type: 3}
+  m_Name: TestDialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - Hello there! Are you new in town?
+  - Hi! Yes, I just got here.
+  - Lovely to meet you. I'm Woodcutter King XII Junior, but you can call me Joe.
+    I do they wood choppin' around here.
+  - Come in when you have time and I'll show you how to chop some logs.
+  dialogueSpeakerOrder: 01000000000000000100000001000000
+  playerPortrait: {fileID: 1075911978, guid: ad5bff36e9544db49ad60e0b98fd3fe3, type: 3}
+  npcPortrait: {fileID: -1607006605, guid: ad5bff36e9544db49ad60e0b98fd3fe3, type: 3}

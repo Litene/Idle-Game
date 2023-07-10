@@ -63,8 +63,8 @@ public class Currency {
     public Currency(CurrencyType type) {
         CurrencyType = type;
         _currentAmount = 0;
-        CurrentCurrencyMultiplier = 10;
-        CurrencyPerSecond = 10;
+        CurrentCurrencyMultiplier = 1;
+        CurrencyPerSecond = 0;
     }
 
     public void IncreasePerSecond(float deltaTime) {
