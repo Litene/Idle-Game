@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IModel {
-    public List<IModelListener> Listeners { get; set; }
-    public IModel RegisterListener(IModelListener listener);
+public interface IEventHandler {
+    public List<IEventListener> Listeners { get; set; }
+    public IEventHandler RegisterListener(IEventListener listener);
 }
 
-public interface IModelListener {
-    public IModel Model { get; set; }
-    public double UpdateGold(double currentGold);
-    public double UpdateOre(double currentOre);
-    public double UpdateWood(double currentWood);
-    
+public interface IEventListener {
+    public IEventHandler EventHandler { get; set; }
+
+    public void OnClicked(GameObject clickedObject);
 }
