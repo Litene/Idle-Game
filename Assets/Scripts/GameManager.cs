@@ -4,23 +4,29 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour {
-    private GameManager _instance;
+    public static GameManager instance;
     public List<IEventListener> Listeners { get; set; }
 
-    public GameManager Instance {
+    /*public static GameManager Instance {
         get {
             if (_instance == null) _instance = this;
 
             return _instance;
         }
+    }*/
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+        }
     }
+
     public Currency CityGold { get; private set; } = new Currency(CurrencyType.Gold);
     public Currency CityLumber { get; private set; } = new Currency(CurrencyType.Wood);
     public Currency CityWood { get; private set; } = new Currency(CurrencyType.Ore);
 
     public void Update() {
         UpdateIncome();
-        Debug.Log(CityGold);
     }
 
     private void UpdateIncome() {
