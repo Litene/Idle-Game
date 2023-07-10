@@ -5,7 +5,7 @@ public class Objective : ScriptableObject {
     public ObjectiveState objectiveState = ObjectiveState.Inactive;
 
     public Quest OwningQuest;
-    
+    public string ObjectiveDescription;
     public virtual void InitializeObjective(Quest owner) {
         
     }

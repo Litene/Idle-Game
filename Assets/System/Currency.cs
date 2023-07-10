@@ -22,6 +22,9 @@ public class Currency {
     public double CurrentCurrencyMultiplier { get; set; }
     public double CurrencyPerSecond { get; set; }
 
+    public ulong CalculateCostBasedOnTime(int timeInMinutes) {
+        return (ulong)(CurrencyPerSecond * 60 * timeInMinutes);
+    }
 
     public double IncreaseMultiplier(float multiplier) {
         CurrencyPerSecond *= multiplier;

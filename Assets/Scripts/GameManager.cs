@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public Currency CityGold { get; private set; } = new Currency(CurrencyType.Gold);
-    public Currency CityLumber { get; private set; } = new Currency(CurrencyType.Wood);
+    public Currency CityOre { get; private set; } = new Currency(CurrencyType.Wood);
     public Currency CityWood { get; private set; } = new Currency(CurrencyType.Ore);
 
     public void Update() {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 
     private void UpdateIncome() {
         CityGold.IncreasePerSecond(Time.deltaTime);
-        CityLumber.IncreasePerSecond(Time.deltaTime);
+        CityOre.IncreasePerSecond(Time.deltaTime);
         CityWood.IncreasePerSecond(Time.deltaTime);
     }
 }
