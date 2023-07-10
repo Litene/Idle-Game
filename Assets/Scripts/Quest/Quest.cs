@@ -9,7 +9,7 @@ public class Quest : ScriptableObject {
     public ObjectiveState questState = ObjectiveState.Inactive;
     public string QuestDescription;
     public UnityEvent unlock;
-    private Reward _reward;
+    public Reward reward;
 
     public ObjectiveState QuestState {
         get => questState;
@@ -39,35 +39,37 @@ public class Quest : ScriptableObject {
             if (QuestState == ObjectiveState.Active) {
                 Debug.Log("Quest State set to Complete");
                 QuestState = ObjectiveState.Completed;
-                switch (_reward.rewardType) {
+                switch (reward.rewardType) {
                     case RewardType.Currency:
-                        switch (_reward.currencyType) {
+                        switch (reward.currencyType) {
                             case CurrencyType.Gold:
-                                GameManager.instance.CityGold.IncreaseMultiplier(_reward.rewardMultiplier);
+                                GameManager.instance.CityGold.IncreaseMultiplier(reward.rewardMultiplier);
                                 break;
                             case CurrencyType.Ore:
-                                GameManager.instance.CityOre.IncreaseMultiplier(_reward.rewardMultiplier);
+                                GameManager.instance.CityOre.IncreaseMultiplier(reward.rewardMultiplier);
                                 break;
                             case CurrencyType.Wood:
-                                GameManager.instance.CityWood.IncreaseMultiplier(_reward.rewardMultiplier);
+                                GameManager.instance.CityWood.IncreaseMultiplier(reward.rewardMultiplier);
                                 break;
                         }
                         break;
                     case RewardType.Multiplier:
-                        switch (_reward.currencyType) {
+                        switch (reward.currencyType) {
                             case CurrencyType.Gold:
-                                GameManager.instance.CityGold.ChangeValue(_reward.rewardAmount);
+                                GameManager.instance.CityGold.ChangeValue(reward.rewardAmount);
                                 break;
                             case CurrencyType.Ore:
-                                GameManager.instance.CityOre.ChangeValue(_reward.rewardAmount);
+                                GameManager.instance.CityOre.ChangeValue(reward.rewardAmount);
                                 break;
                             case CurrencyType.Wood:
-                                GameManager.instance.CityWood.ChangeValue(_reward.rewardAmount);
+                                GameManager.instance.CityWood.ChangeValue(reward.rewardAmount);
                                 break;
                         }
                         break;
                     case RewardType.Unlock:
                         unlock?.Invoke();
+                        Debug.Log("Invoking unlock event");
+                        FindObjectOfType<MainHousePopup>().EnableVacuum();
                         break;
                 }
             }

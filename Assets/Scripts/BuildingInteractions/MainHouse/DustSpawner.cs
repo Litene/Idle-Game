@@ -15,6 +15,9 @@ public class DustSpawner : MonoBehaviour {
     public bool shouldSpawn;
 
     private float _timer = 2.5f;
+
+    public bool hasVacuum=false;
+    public float killValue = -2.4f;
     
     private void Update() {
         if (shouldSpawn) {

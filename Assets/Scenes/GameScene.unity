@@ -430,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 4216264928469266191, guid: 04acb0f5cc5369d4cb10b93f1305c3f8,
         type: 3}
       propertyPath: m_Name
-      value: MainHousePopup
+      value: MainHousePopup1
       objectReference: {fileID: 0}
     - target: {fileID: 4216264928469266191, guid: 04acb0f5cc5369d4cb10b93f1305c3f8,
         type: 3}

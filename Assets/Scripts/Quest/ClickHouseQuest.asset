@@ -14,4 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questObjectives:
   - {fileID: 11400000, guid: d8647be0d1d8b694ebc1a61e35b12157, type: 2}
-  questState: 1
+  questState: 2
+  QuestDescription: 
+  unlock:
+    m_PersistentCalls:
+      m_Calls: []
+  reward:
+    rewardType: 1
+    currencyType: 0
+    rewardMultiplier: 0
+    rewardAmount: 0

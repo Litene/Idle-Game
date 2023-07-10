@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cbdbc52c3d0574e9a3a7f92f5566b4, type: 3}
   m_Name: ClickHouse
   m_EditorClassIdentifier: 
-  objectiveState: 1
+  objectiveState: 2
   OwningQuest: {fileID: 11400000, guid: 079a9a9e64a15904688e176793bddcb3, type: 2}
+  ObjectiveDescription: 
   objectToClick: {fileID: 9036302124537832095, guid: 8052586bf65db3d46a61f807cc675410,
     type: 3}
-  clickCounter: 5
+  clickCounter: 31
   clicksToWin: 20

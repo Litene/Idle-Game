@@ -6,14 +6,17 @@ using UnityEngine.Rendering.Universal;
 
 public class DustKillzone : MonoBehaviour {
     public DustSpawner _dustSpawner;
-    
+
     private void Update() {
-        if (transform.position.x > -2.4f) {
+        if (transform.position.x > _dustSpawner.killValue) {
             Destroy(gameObject);
         }
     }
 
     private void OnDestroy() {
         _dustSpawner.activeDustBunnies.Remove(gameObject);
+        if (_dustSpawner.hasVacuum) {
+            GameManager.instance.CityGold.ChangeValue(10);
+        }
     }
 }

@@ -194,3 +194,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 21300000, guid: 23e32bdaa2756cf419f1e7e10fe07606, type: 3}
   hoverSprite: {fileID: 21300000, guid: c01fd801ed869384b950b76aa5164278, type: 3}
+  poofParticle: {fileID: 7813733526389942510, guid: 1ab14b5f282c617499eb57ddcdbdba15,
+    type: 3}
