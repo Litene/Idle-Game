@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,5 +13,7 @@ public class DustInteract : Interactable {
         Destroy(gameObject);
     }
 
-    
+    private void Awake() {
+        base.Initialize();
+    }
 }

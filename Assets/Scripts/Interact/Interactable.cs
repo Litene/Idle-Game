@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour {
@@ -6,9 +7,9 @@ public class Interactable : MonoBehaviour {
     public Sprite hoverSprite;
 
     protected PopupManager _popupManager;
-
-    private void Awake() {
-        _popupManager = FindObjectOfType<PopupManager>();
+    
+    public void Initialize() {
+        _popupManager = FindObjectOfType<PopupManager>(); 
     }
 
     public virtual void Use() {

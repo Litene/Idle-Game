@@ -34,7 +34,7 @@ public class Currency {
 
     public bool ChangeValue(double changeAmount) {
         if (changeAmount < 0) {
-            if (_currentAmount + changeAmount > 0) {
+            if (_currentAmount + changeAmount >= 0) {
                 _currentAmount += changeAmount;
                 return true;
             }
