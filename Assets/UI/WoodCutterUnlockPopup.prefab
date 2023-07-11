@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8421056544697469662}
   - component: {fileID: 6171529420193810021}
   - component: {fileID: 8639063078556797370}
-  - component: {fileID: 6727824357399171879}
   - component: {fileID: 3337363739380588904}
+  - component: {fileID: 2140104289274548656}
   m_Layer: 0
   m_Name: unlockButton
   m_TagString: Untagged
@@ -99,20 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f673d8f33fcf442ab699bef2ef6446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6727824357399171879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691876168695557282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7068949fdd72ffe4e9df45b9ac363ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseSprite: {fileID: 21300000, guid: 9638fbb68ee3eb9419104c4a815a623f, type: 3}
-  hoverSprite: {fileID: 21300000, guid: 1395cf77ce2294b4294a799e39f502a9, type: 3}
 --- !u!61 &3337363739380588904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,6 +144,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.82, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &2140104289274548656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691876168695557282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59dced258db60a4bbe845bd3b34eccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 21300000, guid: 9638fbb68ee3eb9419104c4a815a623f, type: 3}
+  hoverSprite: {fileID: 21300000, guid: 1395cf77ce2294b4294a799e39f502a9, type: 3}
+  newBaseSprite: {fileID: 21300000, guid: bff1f978de52cd4428ada490bbaf2d87, type: 3}
+  newHoveredSprite: {fileID: 21300000, guid: 4e251331053b8d3418558e0da88fd7fa, type: 3}
+  newPopUp: {fileID: 0}
+  targetBuilding: {fileID: 0}
+  unlockPopup: {fileID: 8438040794129022938}
 --- !u!1 &1463363802227126632
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1 Thousand  \n"
+  m_text: FREE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5867c440ce7f7f2439814b94c1df7897, type: 2}
   m_sharedMaterial: {fileID: 2474276297765209657, guid: 5867c440ce7f7f2439814b94c1df7897,
@@ -408,6 +413,9 @@ MonoBehaviour:
   baseSprite: {fileID: 21300000, guid: 7bb623c05d434bd48b9ab8429d3de697, type: 3}
   hoverSprite: {fileID: 21300000, guid: 07dda150cb2fa224789d641986863f12, type: 3}
   objectToClose: {fileID: 8438040794129022938}
+  ClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &4664113113025653968
 CircleCollider2D:
   m_ObjectHideFlags: 0

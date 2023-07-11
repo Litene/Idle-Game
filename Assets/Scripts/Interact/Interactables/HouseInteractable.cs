@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class HouseInteractable : Interactable {
-    [SerializeField] private GameObject housePopup;
+    public GameObject housePopup;
     public UnityEvent OnOpenEvent;
     public UnityEvent OnCloseEvent;
     public override void Use() {

@@ -9,5 +9,9 @@ public class WoodcuttingInteract : Interactable {
         woodCutterPopup.ChopTrunk();
 
         GetComponent<SpriteRenderer>().sprite = baseSprite;
+
+        Animator animator = GetComponent<Animator>();
+        
+        animator.SetTrigger("Chop");
     }
 }

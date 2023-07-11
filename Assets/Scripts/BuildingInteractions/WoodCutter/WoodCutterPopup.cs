@@ -9,20 +9,20 @@ public class WoodCutterPopup : MonoBehaviour {
     [SerializeField] private GameObject playerObject;
     [SerializeField] private GameObject npcObject;
 
-    private bool playerTurnToChop = true;
+    private bool _playerTurnToChop = true;
 
     private void Start() {
         UpdateInteractables();
     }
 
     public void ChopTrunk() {
-        treeSpawner.RemoveTrunkSection(playerTurnToChop);
-        playerTurnToChop = !playerTurnToChop;
+        treeSpawner.RemoveTrunkSection(_playerTurnToChop);
+        _playerTurnToChop = !_playerTurnToChop;
         UpdateInteractables();
     }
 
     public void UpdateInteractables() {
-        if (playerTurnToChop) {
+        if (_playerTurnToChop) {
             playerObject.GetComponent<SpriteRenderer>().color = Color.white;
             npcObject.GetComponent<SpriteRenderer>().color = new Color(.15f, .15f, .15f, 1);
 

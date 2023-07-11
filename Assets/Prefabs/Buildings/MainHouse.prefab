@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8964890319552496173}
   - component: {fileID: 7366263504593571483}
   - component: {fileID: 297987744124265507}
-  - component: {fileID: 3410105775213872387}
   m_Layer: 0
   m_Name: MainHouse
   m_TagString: MainHouse
@@ -160,17 +159,11 @@ MonoBehaviour:
   baseSprite: {fileID: 21300000, guid: 7944f379a3029a142aa05a5b1cc46173, type: 3}
   hoverSprite: {fileID: 21300000, guid: c4e452eb13e8df641a988425346fb884, type: 3}
   housePopup: {fileID: 0}
---- !u!114 &3410105775213872387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9036302124537832095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75f8dd499fa1254ea2d149e16046991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quests:
-  - {fileID: 11400000, guid: 079a9a9e64a15904688e176793bddcb3, type: 2}
+  OnOpenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCloseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _hiddenScale: {x: 0, y: 0, z: 0}
+  _normalScale: {x: 0, y: 0, z: 0}
