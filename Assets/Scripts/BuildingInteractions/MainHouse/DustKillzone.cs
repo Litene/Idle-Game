@@ -16,7 +16,7 @@ public class DustKillzone : MonoBehaviour {
     private void OnDestroy() {
         _dustSpawner.activeDustBunnies.Remove(gameObject);
         if (_dustSpawner.hasVacuum) {
-            GameManager.instance.CityGold.ChangeValue(10);
+            GameManager.Instance.CityGold.ChangeValue(10);
         }
     }
 }

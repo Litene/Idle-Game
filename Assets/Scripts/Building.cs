@@ -58,10 +58,10 @@ public class Upgrade {
 	public bool TryUnlock() {
 		switch (CurrencyType) {
 			case CurrencyType.Gold:
-				if (GameManager.instance.CityGold.ChangeValue(-CostAmount)) {
+				if (GameManager.Instance.CityGold.ChangeValue(-CostAmount)) {
 					//success
 					if (UpgradeType == UpgradeType.Multiplier) {
-						GameManager.instance.CityGold.IncreaseMultiplier(Multiplier);
+						GameManager.Instance.CityGold.IncreaseMultiplier(Multiplier);
 						Unlocked = true;
 						return true;
 					}
@@ -73,10 +73,10 @@ public class Upgrade {
 
 				break;
 			case CurrencyType.Wood:
-				if (GameManager.instance.CityWood.ChangeValue(-CostAmount)) {
+				if (GameManager.Instance.CityWood.ChangeValue(-CostAmount)) {
 					//success
 					if (UpgradeType == UpgradeType.Multiplier) {
-						GameManager.instance.CityWood.IncreaseMultiplier(Multiplier);
+						GameManager.Instance.CityWood.IncreaseMultiplier(Multiplier);
 						Unlocked = true;
 						return true;
 					}
@@ -88,10 +88,10 @@ public class Upgrade {
 
 				break;
 			case CurrencyType.Ore:
-				if (GameManager.instance.CityOre.ChangeValue(-CostAmount)) {
+				if (GameManager.Instance.CityOre.ChangeValue(-CostAmount)) {
 					//success
 					if (UpgradeType == UpgradeType.Multiplier) {
-						GameManager.instance.CityOre.IncreaseMultiplier(Multiplier);
+						GameManager.Instance.CityOre.IncreaseMultiplier(Multiplier);
 						Unlocked = true;
 						return true;
 					}
@@ -114,13 +114,13 @@ public class Upgrade {
 
 		switch (CurrencyType) {
 			case CurrencyType.Gold:
-				CostAmount = GameManager.instance.CityGold.CalculateCostBasedOnTime(CostTime);
+				CostAmount = GameManager.Instance.CityGold.CalculateCostBasedOnTime(CostTime);
 				break;
 			case CurrencyType.Wood:
-				CostAmount = GameManager.instance.CityWood.CalculateCostBasedOnTime(CostTime);
+				CostAmount = GameManager.Instance.CityWood.CalculateCostBasedOnTime(CostTime);
 				break;
 			case CurrencyType.Ore:
-				CostAmount = GameManager.instance.CityOre.CalculateCostBasedOnTime(CostTime);
+				CostAmount = GameManager.Instance.CityOre.CalculateCostBasedOnTime(CostTime);
 				break;
 		}
 	}

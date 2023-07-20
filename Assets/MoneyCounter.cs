@@ -8,6 +8,6 @@ public class MoneyCounter : MonoBehaviour {
     public TMP_Text tmpRef;
 
     private void Update() {
-        tmpRef.text = GameManager.instance.CityGold.ToString();
+        tmpRef.text = GameManager.Instance.CityGold.ToString();
     }
 }

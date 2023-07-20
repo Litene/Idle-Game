@@ -43,26 +43,26 @@ public class Quest : ScriptableObject {
                     case RewardType.Currency:
                         switch (reward.currencyType) {
                             case CurrencyType.Gold:
-                                GameManager.instance.CityGold.IncreaseMultiplier(reward.rewardMultiplier);
+                                GameManager.Instance.CityGold.IncreaseMultiplier(reward.rewardMultiplier);
                                 break;
                             case CurrencyType.Ore:
-                                GameManager.instance.CityOre.IncreaseMultiplier(reward.rewardMultiplier);
+                                GameManager.Instance.CityOre.IncreaseMultiplier(reward.rewardMultiplier);
                                 break;
                             case CurrencyType.Wood:
-                                GameManager.instance.CityWood.IncreaseMultiplier(reward.rewardMultiplier);
+                                GameManager.Instance.CityWood.IncreaseMultiplier(reward.rewardMultiplier);
                                 break;
                         }
                         break;
                     case RewardType.Multiplier:
                         switch (reward.currencyType) {
                             case CurrencyType.Gold:
-                                GameManager.instance.CityGold.ChangeValue(reward.rewardAmount);
+                                GameManager.Instance.CityGold.ChangeValue(reward.rewardAmount);
                                 break;
                             case CurrencyType.Ore:
-                                GameManager.instance.CityOre.ChangeValue(reward.rewardAmount);
+                                GameManager.Instance.CityOre.ChangeValue(reward.rewardAmount);
                                 break;
                             case CurrencyType.Wood:
-                                GameManager.instance.CityWood.ChangeValue(reward.rewardAmount);
+                                GameManager.Instance.CityWood.ChangeValue(reward.rewardAmount);
                                 break;
                         }
                         break;

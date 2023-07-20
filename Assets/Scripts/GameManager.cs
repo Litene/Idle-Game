@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour {
-    public static GameManager instance;
+    public static GameManager Instance;
     public List<IEventListener> Listeners { get; set; }
 
     /*public static GameManager Instance {
@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour {
     }*/
 
     private void Awake() {
-        if (instance == null) {
-            instance = this;
+        if (Instance == null) {
+            Instance = this;
         }
     }
 
