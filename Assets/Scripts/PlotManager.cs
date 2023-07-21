@@ -4,4 +4,9 @@ using UnityEngine;
 
 public class PlotManager : MonoBehaviour {
 	private List<Plot> PossiblePlots;
+
+	
+	public void ExpandPlots() {
+		
+	}
 }
