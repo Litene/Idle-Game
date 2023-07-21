@@ -202,7 +202,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &4606735141108472297
 MonoBehaviour:
@@ -253,6 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2568021764388452474}
+  - component: {fileID: 1831647351900222966}
   m_Layer: 0
   m_Name: ToolTip
   m_TagString: Untagged
@@ -276,6 +277,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1831647351900222966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560601858881176318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7eac905d981a24e83f350e11f38ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notScaleMode: 1
 --- !u!1 &8832116556773562643
 GameObject:
   m_ObjectHideFlags: 0
