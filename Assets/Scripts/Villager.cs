@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable] public class Villager {
-	private string _displayName;
-	private GameObject _displayImage;
-	public Villager (string displayName) {
-		_displayName = displayName;
-	}
+[Serializable] public class Villager : MonoBehaviour {
+	public string DisplayName;
+	public GameObject DisplayImage;
+	public ProfessionType Profession;
+	public float TimeToArriveInMinutes;
+
 }
