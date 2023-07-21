@@ -8,6 +8,7 @@ public class Building : MonoBehaviour {
 	public List<Quest> Quests = new List<Quest>();
 	public List<Upgrade> Upgrades = new List<Upgrade>();
 	public ProfessionType ProfessionType;
+	public float TimeToBuildInMinutes;
 	
 	private void Awake() {
 		foreach (var quest in Quests) {
